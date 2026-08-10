@@ -1,0 +1,36 @@
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+**/Flutter/ephemeral/
+**/flutter/ephemeral/
+**/GeneratedPluginRegistrant.*
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+ios/Pods/
+macos/Pods/
+*.iml
+.idea/
+.vscode/
+
+# Artefatos da implementação Electron anterior.
+node_modules/
+out/
+dist/
+release/
+.env
+.env.*
+!.env.example
+coverage/
+.DS_Store
+*.log
+*.symbols
+*.map.json
+
+# Segredos e artefatos de licenciamento (nunca publicar)
+var/issuer/private-key.pem
+var/licenses/
+var/gateway-state.json
