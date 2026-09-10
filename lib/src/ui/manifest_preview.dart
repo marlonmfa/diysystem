@@ -187,9 +187,9 @@ class ManifestPreview extends StatelessWidget {
                             child: GridView.builder(
                               physics: const NeverScrollableScrollPhysics(),
                               gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    childAspectRatio: 3.6,
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: MediaQuery.sizeOf(context).width < 600 ? 1 : 2,
+                                    mainAxisExtent: 44,
                                     crossAxisSpacing: 10,
                                     mainAxisSpacing: 10,
                                   ),

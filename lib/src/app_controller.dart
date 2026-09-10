@@ -106,13 +106,15 @@ class AppController extends ChangeNotifier {
     } else {
       phase = AppPhase.studio;
     }
-    clearError();
+    error = null;
+    notifyListeners();
   }
 
   void openSystem() {
     if (state.manifest == null) return;
     phase = AppPhase.system;
-    clearError();
+    error = null;
+    notifyListeners();
   }
 
   Future<void> sendAnswer(String answer) async {

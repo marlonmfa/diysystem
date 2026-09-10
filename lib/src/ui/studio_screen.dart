@@ -199,10 +199,6 @@ class _StudioHeader extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
       child: Row(
         children: [
-          if (MediaQuery.sizeOf(context).width < 900) ...[
-            const DiyBrand(compact: true),
-            const SizedBox(width: 12),
-          ],
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,6 +211,8 @@ class _StudioHeader extends StatelessWidget {
                 ),
                 Text(
                   controller.state.admin?.name ?? 'Administrador',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
@@ -238,6 +236,12 @@ class _StudioHeader extends StatelessWidget {
               icon: const Icon(Icons.open_in_new),
             ),
           ],
+          if (MediaQuery.sizeOf(context).width < 900)
+            IconButton(
+              tooltip: 'Sair',
+              onPressed: controller.logout,
+              icon: const Icon(Icons.logout),
+            ),
         ],
       ),
     );

@@ -1,0 +1,83 @@
+appId: com.diysystem.app
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: Antes de construir, proteja a oficina.
+    timeout: 30000
+- takeScreenshot: diy-mobile-${PLATFORM}-inicio-${TEST_DATE}
+- scrollUntilVisible:
+    element: Nome do administrador
+    direction: DOWN
+    centerElement: false
+- tapOn: Nome do administrador
+- inputText: Ana Demo
+- pressKey: Enter
+- inputText: ana@example.invalid
+- pressKey: Enter
+- inputText: demonstracao123
+- pressKey: Enter
+- inputText: demonstracao123
+- hideKeyboard
+- scrollUntilVisible:
+    element: Criar acesso e conversar
+    direction: DOWN
+    centerElement: false
+- takeScreenshot: diy-mobile-${PLATFORM}-administrador-${TEST_DATE}
+- tapOn: Criar acesso e conversar
+- extendedWaitUntil:
+    visible: Conversa
+    timeout: 30000
+- tapOn: Conte como o sistema deve funcionar…
+- inputText: Quero cadastrar clientes na Oficina Demo
+- hideKeyboard
+- tapOn: Enviar resposta
+- extendedWaitUntil:
+    visible: Oficina Demo
+    timeout: 30000
+- waitForAnimationToEnd
+- takeScreenshot: diy-mobile-${PLATFORM}-conversa-${TEST_DATE}
+- tapOn: Prévia ao vivo
+- waitForAnimationToEnd
+- takeScreenshot: diy-mobile-${PLATFORM}-previa-${TEST_DATE}
+- tapOn: Abrir sistema
+- assertVisible: Clientes
+- tapOn: Novo cliente
+- scrollUntilVisible:
+    element: 'Nome do cliente.*'
+    direction: DOWN
+    centerElement: false
+- tapOn: 'Nome do cliente.*'
+- inputText: Cliente Demo
+- hideKeyboard
+- scrollUntilVisible:
+    element: Salvar registro
+    direction: DOWN
+    centerElement: false
+- takeScreenshot: diy-mobile-${PLATFORM}-cadastro-${TEST_DATE}
+- tapOn: Salvar registro
+- extendedWaitUntil:
+    visible: Cliente Demo
+    timeout: 10000
+- takeScreenshot: diy-mobile-${PLATFORM}-registro-${TEST_DATE}
+- tapOn: Área administrativa
+- tapOn: Histórico
+- assertVisible: Histórico administrativo
+- takeScreenshot: diy-mobile-${PLATFORM}-historico-${TEST_DATE}
+- tapOn: Construir
+- tapOn: Sair
+- assertVisible: Entrar como administrador
+- stopApp
+- launchApp
+- scrollUntilVisible:
+    element: Senha
+    direction: DOWN
+    centerElement: false
+- tapOn: Senha
+- inputText: demonstracao123
+- pressKey: Enter
+- extendedWaitUntil:
+    visible: Clientes
+    timeout: 30000
+- assertVisible: Cliente Demo
+- takeScreenshot: diy-mobile-${PLATFORM}-persistencia-${TEST_DATE}
