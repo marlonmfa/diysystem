@@ -61,10 +61,10 @@ appId: com.diysystem.app
     timeout: 10000
 - takeScreenshot: diy-mobile-${PLATFORM}-registro-${TEST_DATE}
 - tapOn: Área administrativa
-- tapOn: Histórico
+- tapOn: '(?s)^Histórico.*'
 - assertVisible: Histórico administrativo
 - takeScreenshot: diy-mobile-${PLATFORM}-historico-${TEST_DATE}
-- tapOn: Construir
+- tapOn: '(?s)^Construir.*'
 - tapOn: Sair
 - assertVisible: Entrar como administrador
 - stopApp
